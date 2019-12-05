@@ -3,7 +3,7 @@ import pokemon from "./pokemon.jpg";
 import Pokemon from "./components/Pokemon";
 import { Input, Label } from "@rebass/forms";
 import { ThemeProvider } from "emotion-theming";
-import { Box, Button, Flex, Heading, Text, Link, Card, Image } from "rebass";
+import { Box, Button, Flex, Text, Link, Image } from "rebass";
 import theme from "@rebass/preset";
 
 import "./App.css";
@@ -15,39 +15,45 @@ function App() {
   // keep track of what we put into the input box
   const [query, setQuery] = useState("");
 
+  const [url, setUrl] = useState(
+    `http://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 151)}`
+  );
   // keep track of the loading of thepage
   const [isLoading, setIsLoading] = useState(true);
 
   // log errors
   const [isError, setIsError] = useState(false);
 
-  // set sendData to async function
-  const sendData = async () => {
-    // update stateful variable isLoading, set to true
-    setIsLoading(true);
+  useEffect(() => {
+    // set sendData to async function
+    const sendData = async () => {
+      // update stateful variable isLoading, set to true
+      setIsLoading(true);
 
-    // update stateful variable isError, set to false
-    setIsError(false);
+      // update stateful variable isError, set to false
+      setIsError(false);
 
-    try {
-      // send request to get data from api; promise
-      const response = await fetch(`http://pokeapi.co/api/v2/pokemon/${query}`);
+      try {
+        // send request to get data from api; promise
+        const response = await fetch(url);
 
-      // get json result from promise
-      const output = await response.json();
+        // get json result from promise
+        const output = await response.json();
 
-      // update state with response from API
-      setData(output);
-      // console.log(output);
-      // if we get an error, log it
-    } catch (e) {
-      // console.log(e);
+        // update state with response from API
+        setData(output);
+        // console.log(output);
+        // if we get an error, log it
+      } catch (e) {
+        // console.log(e);
 
-      // update error state if we have an error
-      setIsError(true);
-    }
-    setIsLoading(false);
-  };
+        // update error state if we have an error
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+    sendData();
+  }, [url]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,7 +72,7 @@ function App() {
         <Text>{isError ? <p>Error in request</p> : null}</Text>
 
         {/* keep track of input typed into input box and update state */}
-        <Image src={pokemon} padding="-5px" width={1 / 3} />
+        <Image src={pokemon} padding="5px" width={1 / 3} />
 
         <Flex padding="10px">
           {/* <Label htmlFor="name">Name</Label> */}
@@ -78,20 +84,29 @@ function App() {
             onChange={e => setQuery(e.target.value)}
           />
           <Box width={1 / 3}></Box>
+          {console.log(data)}
         </Flex>
 
         {/* set button click to send data based on input */}
-        <Button onClick={e => sendData(data)}>Search</Button>
-
+        <Button
+          backgroundColor="black"
+          color="white"
+          onClick={e => setUrl(`http://pokeapi.co/api/v2/pokemon/${query}`)}
+        >
+          Search
+        </Button>
         {/* if is loading return is loading, if false, return data */}
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-            <Pokemon
-              name={data.name}
-              id={data.id}
-              image={data.sprites.front_default}
-            />
+          <Pokemon
+            name={data.name}
+            id={data.id}
+            xp={data.base_experience}
+            weight={data.weight}
+            height={data.height}
+            image={data.sprites.front_default}
+          />
         )}
       </Box>
     </ThemeProvider>
