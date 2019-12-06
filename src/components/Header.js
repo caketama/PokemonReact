@@ -1,15 +1,15 @@
 import React from "react";
-import pokeball from "../pokeball.jpg";
 import { Flex, Box, Image } from "rebass";
 import { Link } from "react-router-dom";
 import Router from "./Router";
+import Pokeball from "./Pokeball";
 const Header = () => {
   return (
     <Flex>
-      <Box width={1} maxWidth='100%'>
+      <Box width={1} maxWidth="100%">
         <Link to="/pokemon">
-          <Image width="100%" src={pokeball}></Image>
-        </Link>
+        <Pokeball />
+          </Link>
       </Box>
     </Flex>
   );

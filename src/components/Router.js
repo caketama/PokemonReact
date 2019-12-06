@@ -7,7 +7,6 @@ function Router() {
   return (
   <div>
     <Route path="/pokemon" component={Pokemon} />
-    <Route path="/list" component={Blank} />
   </div>
   )
 }
