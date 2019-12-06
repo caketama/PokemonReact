@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Blank from './Blank'
 import Pokemon from './Pokemon'
+import Pokeball from "./Pokeball"
 
 function Router() {
   return (
