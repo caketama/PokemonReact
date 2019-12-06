@@ -169,4 +169,4 @@ function Pokemon() {
   );
 };
 
-export default pokemon;
+export default Pokemon;

@@ -1,15 +1,19 @@
-import React from 'react';
-import ball from '../pokeball.jpg';
-import { Flex, Box, Image } from 'rebass';
+import React from "react";
+import ball from "../pokeball.jpg";
+import { Route, Link } from "react-router-dom";
+import { Flex, Box, Image } from "rebass";
+import Pokemon from './Pokemon'
 
 const Pokeball = () => {
   return (
-      <Flex>
-        <Box width={1} maxWidth='100%'>
-          <Image width='100%' src={ball}></Image>
+    <Flex>
+      <Box width={1}>
+      <Link className="link" to="/pokemon">
+      <Image width="100%" src={ball}></Image>
+        </Link>
         </Box>
-      </Flex>
-  )
-}
+    </Flex>
+  );
+};
 
 export default Pokeball;

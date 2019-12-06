@@ -6,10 +6,9 @@ import Pokeball from "./Pokeball";
 const Header = () => {
   return (
     <Flex>
-      <Box width={1} maxWidth="100%">
-        <Link to="/pokemon">
-        <Pokeball />
-          </Link>
+      <Box width={1}>
+        <Link to="/pokemon"></Link>
+        <Pokeball/>
       </Box>
     </Flex>
   );
