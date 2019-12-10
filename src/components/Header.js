@@ -8,7 +8,6 @@ const Header = () => {
     <Flex sx={{justifyContent: "center"}}>
       <Link to="/lookup">Pokemon</Link>
       <Link to="/myteam">MyTeam</Link>
->>>>>>> master
     </Flex>
   );
 };
