@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-import React from "react";
-import Router from './components/Router'
-import Header from "./components/Header";
-import { Flex, Box, Image } from "rebass";
-import Pokeball from "./components/Pokeball";
-=======
 import React, { useState } from "react";
+import { ThemeProvider } from "emotion-theming";
 import Header from "./components/Header";
-import LookUp from "./containers/LookUp";
+import { BrowserRouter, Route } from "react-router-dom";
+import Lookup from "./containers/Lookup";
 import Team from "./containers/Team";
 import TeamContext from "./components/TeamContext";
-import { BrowserRouter, Route } from "react-router-dom";
-import { ThemeProvider } from "emotion-theming";
 import theme from "@rebass/preset";
->>>>>>> master
 import "./App.css";
 
 function App() {
@@ -35,12 +27,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <Header />
-      <Router />
-    </div>
-=======
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Header />
@@ -51,12 +37,11 @@ function App() {
             removeFromTeam: removeFromTeam
           }}
         >
-          <Route path="/lookup" component={LookUp} />
-          <Route path="/myteam" component={Team} />
+          <Route path="/lookup" component={Lookup} />
+          <Route path="/team" component={Team} />
         </TeamContext.Provider>
       </ThemeProvider>
     </BrowserRouter>
->>>>>>> master
   );
 }
 
