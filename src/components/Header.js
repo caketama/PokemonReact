@@ -1,16 +1,12 @@
 import React from "react";
-import { Flex, Box, Image } from "rebass";
+import { Flex, Box } from 'rebass';
 import { Link } from "react-router-dom";
-import Router from "./Router";
-import Pokeball from "./Pokeball";
+
 const Header = () => {
   return (
-    <Flex>
-      <Box width={1} maxWidth="100%">
-        <Link to="/pokemon">
-        <Pokeball />
-          </Link>
-      </Box>
+    <Flex sx={{justifyContent: "center"}}>
+      <Link to="/lookup">Pokemon</Link>
+      <Link to="/myteam">MyTeam</Link>
     </Flex>
   );
 };
