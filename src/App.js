@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import Router from './components/Router'
-import Header from "./components/Header";
-import { Flex, Box, Image } from "rebass";
-import Pokeball from "./components/Pokeball";
-=======
 import React, { useState } from "react";
 import Header from "./components/Header";
 import LookUp from "./containers/LookUp";
@@ -13,8 +6,6 @@ import TeamContext from "./components/TeamContext";
 import { BrowserRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "emotion-theming";
 import theme from "@rebass/preset";
->>>>>>> master
-import "./App.css";
 
 function App() {
   const [team, setTeam] = useState([]);
@@ -35,12 +26,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <Header />
-      <Router />
-    </div>
-=======
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Header />
@@ -56,7 +41,6 @@ function App() {
         </TeamContext.Provider>
       </ThemeProvider>
     </BrowserRouter>
->>>>>>> master
   );
 }
 

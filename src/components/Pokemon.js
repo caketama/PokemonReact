@@ -23,8 +23,4 @@ const Pokemon = props => {
     </Box>
   );
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 export default Pokemon;
