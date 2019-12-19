@@ -2,11 +2,11 @@ import React from "react";
 import { Button, Card, Image, Heading, Flex, Box, Text } from "rebass";
 import TeamContext from "../components/TeamContext";
 
-const Team = props => {
+const Team = pokemon => {
   return (
-    <TeamContext.Consumer>
+//    <TeamContext.Consumer>
       {({ team, removeFromTeam }) => {
-        let myTeam = team.map(props => {
+        let myTeam = team.map(pokemon => {
           return (
             <Box
               width={1 / 3}
@@ -21,14 +21,14 @@ const Team = props => {
               }}
             >
               <Card>
-                <Image p={2} src={props.image} />
+                <Image p={2} src={pokemon.image} />
                 <Heading fontSize={3} sx={{ textTransform: "capitalize" }}>
-                  Name: {props.name}
+                  Name: {pokemon.name}
                 </Heading>
-                <Text p={2}>Type: {props.type}</Text>
+                <Text p={2}>Type: {pokemon.type}</Text>
                 <Button
                   mx={2}
-                  onClick={removeFromTeam}
+                  onClick={e => removeFromTeam(pokemon)}
                 >
                   Remove
                 </Button>
@@ -42,7 +42,7 @@ const Team = props => {
         console.log({ team });
         return <Flex sx={{ flexWrap: "wrap" }}>{myTeam}</Flex>;
       }}
-    </TeamContext.Consumer>
+ //   </TeamContext.Consumer>
   );
 };
 
